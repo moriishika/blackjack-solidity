@@ -2,8 +2,17 @@
 pragma solidity ^0.8.5;
 
 contract BlackJack{
-    uint pot = 1000000;
-    address dealer;
+   
+        uint pool = 1000000;
+        address owner = msg.sender;
 
-    mapping(address => uint256) players;
+
+    function setBet(uint _betValue) public returns(uint){
+        pool += _betValue;
+        return pool;
+    }
+
+    function getCurrentPool() public view returns (uint){
+        return pool;
+    }
 }
